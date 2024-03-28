@@ -1,0 +1,57 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+header {
+  background-color: #201658;
+}
+
+header > ul {
+  display: flex;
+  list-style: none;
+}
+header > ul li a {
+  color: black;
+  text-decoration: none;
+  font-size: 20px;
+}
+header > ul li {
+  background-color: #ccd3ca;
+  padding: 14px;
+}
+.service {
+  background-color: #201658;
+  position: relative;
+  transition: 0.3s;
+}
+.service:hover {
+  background-color: #ccd3ca;
+}
+.service:hover .dropdown {
+  display: block;
+}
+.service:hover a {
+  color: #201658;
+}
+.service a {
+  color: #ccd3ca;
+}
+.dropdown {
+  width: 150px;
+  position: absolute;
+  top: 50px;
+  display: none;
+  left: 0;
+  background-color: #ccd3ca;
+}
+.dropdown ul {
+  list-style: none;
+}
+.dropdown ul li:hover {
+  cursor: pointer;
+  background-color: #201658;
+}
+.dropdown ul li:hover a {
+  color: #ccd3ca;
+}
