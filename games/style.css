@@ -1,0 +1,20 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.custom-navbar {
+  display: flex;
+  padding: 0px 100px;
+  justify-content: space-between;
+  align-items: center;
+}
+#addBtn {
+  padding: 5px 20px;
+  background-color: orangered;
+  color: white;
+  border: none;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 10px;
+}
