@@ -1,82 +1,49 @@
-let id = 5
-const addNewSlide = document.getElementById("addNewSlide")
-let slides = [
+const products = [
     {
-        id: 1,
-        image: "https://cdn.akamai.steamstatic.com/steam/apps/1174180/header.jpg?t=1695140956",
-        isActive: true
+        id: 0,
+        brand: "Mercedes",
+        model: "C200",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLXoIurwvRvTMVFBDNK2E_0pKrt27MT-2RplZk81VnPw&s",
+        desc: "lorems"
     },
     {
         id: 2,
-        image: "https://cdn.akamai.steamstatic.com/steam/apps/1971870/capsule_616x353.jpg?t=1709136014",
-        isActive: false
+        brand: "BMW",
+        model: "X7",
+        image: "https://hips.hearstapps.com/hmg-prod/images/2025-bmw-x7-101-65d51e47938f4.jpg?crop=0.732xw:0.822xh;0.122xw,0.178xh&resize=768:*",
+        desc: "ipsum"
     },
     {
         id: 3,
-        image: "https://cdn.akamai.steamstatic.com/steam/apps/730/capsule_616x353.jpg?t=1698860631",
-        isActive: false
-    },
-    {
-        id: 4,
-        image: "https://static1.pocketlintimages.com/wordpress/wp-content/uploads/152432-games-feature-what-is-valorant-a-guide-to-the-free-to-play-fps-with-tips-on-how-to-win-image3-muha6tfgev.jpg",
-        isActive: false
-    },
+        brand: "VAZ",
+        model: "2107",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSg0sIu3yFt1Fn8cABaTwt8H8OawfuZrPzgRWt9J3g4vQ&s",
+        desc: "sit amet"
+    }
 ]
-function nextSlide(id) {
-    const target = slides.find((slide) => slide.id == id)
-    const indexOfTarget = slides.indexOf(target)
-    if (indexOfTarget == slides.length - 1) {
-        slides[indexOfTarget].isActive = false
-        slides[0].isActive = true
-    }
-    else {
-        slides[indexOfTarget].isActive = false
-        slides[indexOfTarget + 1].isActive = true
-    }
-    renderSlider(slides)
-}
-function prevSlide(id) {
-    const target = slides.find((slide) => slide.id == id)
-    const indexOfTarget = slides.indexOf(target)
-    if (indexOfTarget == 0) {
-        slides[indexOfTarget].isActive = false
-        slides[slides.length - 1].isActive = true
-    }
-    else {
-        slides[indexOfTarget].isActive = false
-        slides[indexOfTarget - 1].isActive = true
-    }
-    renderSlider(slides)
-}
-const wrapper = document.getElementById("wrapper")
-function renderSlider(list) {
-    let inner = ""
+const listItem = document.getElementById("list")
+function renderUI(list) {
+    let inner = '';
     for (let i = 0; i < list.length; i++) {
-        if (list[i].isActive) {
-            inner = `
-            <button id="prev" onclick="prevSlide(${list[i].id})">prev</button>
-            <div id="screen">
-              <img
-                src="${list[i].isActive ? `${list[i].image}` : ""}"
-                alt=""
-              />
+        inner += `
+        <div class="col-3">
+          <div class="card" style="width: 18rem">
+            <img class="card-img-top" src="${list[i].image}" alt="Card image cap" />
+            <div class="card-body">
+              <h5 class="card-title">${list[i].brand} ${list[i].model}</h5>
+              <p class="card-text">
+               ${list[i].desc}
+              </p>
+              <a href="detail.html?id=${list[i].id}" class="btn btn-primary">detail</a>
             </div>
-            <button id="next" onclick="nextSlide(${list[i].id})">next</button>
-            `
-        }
+          </div>
+        </div>
+        `
     }
-    wrapper.innerHTML = inner
+    listItem.innerHTML = inner
+}
+if (window.location.href == "http://127.0.0.1:5500/index.html") {
+    renderUI(products)
 }
 
-addNewSlide.addEventListener("click", (e) => {
-    let newImage = prompt("image")
-    let newSlide = {
-        id: id,
-        image: newImage,
-        isActive: false
-    }
-    slides.push(newSlide)
-    id++
-    renderSlider(slides)
-})
-renderSlider(slides)
+export default products
