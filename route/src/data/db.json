@@ -1,0 +1,10 @@
+{
+  "products": [
+    {
+      "id": "92beb827-fc23-4c15-903e-778c9a09a1dd",
+      "title": "Iphone X",
+      "image": "https://www.apple.com/newsroom/images/product/iphone/standard/iphonex_front_back_glass_big.jpg.large.jpg",
+      "desc": "Lorem Ipsum"
+    }
+  ]
+}

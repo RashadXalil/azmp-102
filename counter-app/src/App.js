@@ -18,7 +18,7 @@ function App() {
         id: 3,
         name: "Iphone XS",
         price: 1100,
-        isBestSeller: true
+        isBestSeller: false
     },
     {
         id: 4,
